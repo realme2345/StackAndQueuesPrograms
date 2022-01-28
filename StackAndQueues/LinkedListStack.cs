@@ -38,5 +38,23 @@ namespace StackAndQueues
                 }
             }
         }
+        public void Peek() // checking if top element is nulll otherwise printing top element
+        {
+            if(this.top == null)
+            {
+                Console.WriteLine(" No element present to peek");
+                return;
+            }
+            Console.WriteLine(" Top Most Element : " + this.top.data);
+        }
+        public void Pop() // checking if top element is nulll otherwise printing top element
+        {
+            if (this.top == null)
+            {
+                Console.WriteLine(" No element present to pop");
+                return;
+            }
+            Console.WriteLine(" {0} is deleted from the stack : ", this.top.data);
+        }
     }
 }
