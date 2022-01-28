@@ -46,5 +46,17 @@ namespace StackAndQueues
                 }
             }
         }
+        public void Dequeue()
+        {
+            if (this.head == null) // if queue is empty
+            {
+                Console.WriteLine(" The Queue is Empty ");
+                return;
+            }
+            // store the previous head and move head pointer one step to a head to delete current element
+            Node temp = this.head;
+            this.head=this.head.next;
+            Console.WriteLine("Item deleted is {0}",temp.data);
+        }
     }
 }
