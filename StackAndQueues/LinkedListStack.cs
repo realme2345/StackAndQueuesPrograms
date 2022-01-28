@@ -8,22 +8,30 @@ namespace StackAndQueues
 {
     class LinkedListStack
     {
-        public Node top;
-        public void Push(int newData)
+        public Node head;
+        public void Enqueue(int newData)
         {
-            // creating a link between newnode and where top is pointing
+            // creating a link between newnode and where head is pointing
             Node new_node = new Node(newData);
-            if (this.top != null)
+            if (this.head == null)
             {
-                new_node.next = this.top; // newnode will hold the address of top element
+                this.head = new_node;
             }
-            this.top = new_node; //top will point to new element
-            Console.WriteLine(" New node {0} is added ", new_node.data);
+            else
+            {
+                Node temp = this.head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = new_node;
+            }
+            Console.WriteLine("inserted into list" + " " + new_node.data);
         }
         public void Display() //printing the values till temp point towards null
         {
             Console.WriteLine("Displaying Names");
-            Node temp = this.top;
+            Node temp = this.head;
             if (temp == null)
             {
                 Console.WriteLine("no values to display ,Empty");
@@ -33,28 +41,10 @@ namespace StackAndQueues
             {
                 while (temp != null)
                 {
-                    Console.WriteLine(" Values in the stack : " + temp.data);
+                    Console.WriteLine(" Values in the Queue : " + temp.data);
                     temp = temp.next;
                 }
             }
-        }
-        public void Peek() // checking if top element is nulll otherwise printing top element
-        {
-            if(this.top == null)
-            {
-                Console.WriteLine(" No element present to peek");
-                return;
-            }
-            Console.WriteLine(" Top Most Element : " + this.top.data);
-        }
-        public void Pop() // checking if top element is nulll otherwise printing top element
-        {
-            if (this.top == null)
-            {
-                Console.WriteLine(" No element present to pop");
-                return;
-            }
-            Console.WriteLine(" {0} is deleted from the stack : ", this.top.data);
         }
     }
 }
